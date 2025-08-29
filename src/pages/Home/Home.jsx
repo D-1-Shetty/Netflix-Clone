@@ -26,9 +26,9 @@ const Home = () => {
           </div>
         </div>
         <div className='px-[6%] mt-4'>
-        <TitleCards title={"Blockbuster Movies"}/>
-        <TitleCards title={"Only on Netflix"} />
-        <TitleCards title={"Upcomming"}/>
+        <TitleCards title={"Blockbuster Movies"} category={"popular"}/>
+        <TitleCards title={"Only on Netflix"} category={"top_rated"}/>
+        <TitleCards title={"Upcomming"} category={"upcoming"}/>
         <TitleCards title={"Top Pics for You"}/>
         </div>
         <Footer/>
