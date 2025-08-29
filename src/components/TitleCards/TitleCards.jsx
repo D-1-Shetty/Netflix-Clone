@@ -1,12 +1,26 @@
-import React from 'react'
+import React,{ useRef,useEffect } from 'react'
+
 import cards_data from '../../assets/cards/Cards_data'
-const TitleCards = () => {
+
+
+const TitleCards = ({title,category}) => {
+  const cardRef=useRef();
+
+  const handleWheel=(event)=>{
+    event.preventDefault();
+    cardRef.current.scrollLeft+=event.deltaY||event.deltaX;
+  }
+    useEffect(()=>
+    {
+      cardRef.current.addEventListener('wheel',handleWheel)
+    },[])
+  
   return (
     <div className='mt-12 mb-8'>
-      <h2 className='mb-2'>Popular on Netflix</h2>
+      <h2 className='mb-2 font-extrabold'>{title?title:"Popular on Netflix"}</h2>
       
       
-      <div className='flex gap-2.5 overflow-x-scroll w-screen scrollbar-hide' >
+      <div className='flex gap-2.5 overflow-x-scroll w-screen scrollbar-hide' ref={cardRef} >
         {cards_data.map((card,index)=>{
           return <div key={index}className='w-60 rounded-b-sm relative  shrink-0' style={{background:'red'}}>
             <img src={card.image} alt="" className='cursor-pointer '/>
