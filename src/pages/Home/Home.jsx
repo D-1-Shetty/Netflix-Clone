@@ -10,7 +10,7 @@ const Home = () => {
   return (
     <div className='relative '>
         <Navbar/>
-        <div className=''>
+        <div className='relative'>
           <img src={hero_banner} alt="" className='w-full [mask-image:linear-gradient(to_right,transparent,black_75%)] [-weblit-mask-image:linear-gradient(to_right,transparent,black_75%)]' />
           <div className='absolute bottom-12 px-[6%] '>
             <img src={hero_title} alt="" className='w-[90%] max-w-[420px] mb-8 ' />
@@ -24,7 +24,12 @@ const Home = () => {
             <TitleCards/>
           </div>
         </div>
-      
+        <div className='px-[6%] mt-4'>
+        <TitleCards title={"Blockbuster Movies"}/>
+        <TitleCards title={"Only on Netflix"} />
+        <TitleCards title={"Upcomming"}/>
+        <TitleCards title={"Top Pics for You"}/>
+        </div>
     </div>
   )
 }
