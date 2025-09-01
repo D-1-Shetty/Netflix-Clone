@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useEffect, useRef } from 'react'
 import logo from '../../assets/logo.png'
 import search_icon from '../../assets/search_icon.svg'
 import bell_icon from '../../assets/bell_icon.svg'
@@ -8,8 +8,23 @@ import caret_icon from '../../assets/caret_icon.svg'
 
 
 const Navbar = () => {
+    const navRef=useRef();
+    useEffect(()=>{
+        const handleScroll=()=>
+    {    
+        if(window.scrollY>80){
+        navRef.current.classList.add('bg-black')
+        navRef.current.classList.remove('bg-gradient-to-b from-[rgba(0,0,0,0.7)] from-10% to-transparent')
+    }
+    else{
+        navRef.current.classList.remove('bg-black')
+        navRef.current.classList.add('bg-gradient-to-b from-[rgba(0,0,0,0.7)] from-10% to-transparent')
+    }}
+    window.addEventListener('scroll',handleScroll)
+    },[])
     return (
-        <div className='w-full py-5 px-[6%] flex justify-between fixed text-sm text-[#e5e5e5] bg-gradient-to-b from-[rgba(0,0,0,0.7)] from-10% to-transparent z-[1]'>
+        
+        <div  ref={navRef} className= 'w-full py-5 px-[6%] flex justify-between fixed text-sm text-[#e5e5e5] bg-gradient-to-b from-[rgba(0,0,0,0.7)] from-10% to-transparent z-[1]'>
             <div className='flex items-center gap-[50px]'>
                 <img src={logo} alt="logo" className='w-[90px]' />
                 <ul className='flex gap-5 list-none cursor-pointer'>
